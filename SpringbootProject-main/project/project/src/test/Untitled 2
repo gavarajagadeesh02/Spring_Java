@@ -1,0 +1,69 @@
+Entity
+-------
+    ->Person
+    ->Employee
+    ->Student
+    ->Teacher
+    ->EmployeeAttendence
+    
+Controller
+----------
+       ->StudentController
+       -------------------
+               1.register(PostMapping)
+               2.updateName(PostMapping)
+               3.delete(PostMapping)
+               4.updateContactNo(PostMapping)
+               5.updateAddress(PostMapping)
+       
+       ->EmployeeAttendenceController
+       ----------------------------
+                1.login(PostMapping)
+                2.logout(PostMapping)
+                3.delete(GetMapping)   
+     
+ Service
+---------
+          ->StudentService
+                 1.register
+                 2.updateName
+                 3.updateContactNo
+                 4.deleteStudent
+                 5.updateAddress
+         ->EmployeeAttendenceService
+                 1.login
+                 2.logout
+                 3.delete
+                 
+Repository
+----------
+         ->StudentRepository(Using jdbc Template)
+          1.registerStudent
+          2.updateName
+          3.deleteStudent
+          4.updateContactno
+          5.updateAddress
+           
+         ->EmployeeAttendenceRepository (Using JPA)
+          1.updateLogoutTime
+          2.delete by empId                
+       
+              
+Tables
+-------
+      1.student(Using JDBC)
+      ---------
+       TableColumns: 1.rollNo
+                     2.name
+                     3.age
+                     4.gender
+                     5.grade
+                     6.section
+                     7.contactNo
+                     8.address
+      2.employee_attendence (Using JPA)      
+       TableColumns : 1.attendence_id
+                      2.emp_id
+                      3.entry_date
+                      4.login_time
+                      5.logout_time
